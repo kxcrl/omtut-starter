@@ -77,8 +77,8 @@ Next, we modify the `comment-list` component:
 (defn comment-list [{:keys [comments]}]
   (om/component
    (dom/div #js {:className "commentList"}
-            (om/build-all comment comments
-                          {:key :id}))))
+            (into-array (om/build-all comment comments
+                                      {:key :id})))))
 ```
 
 We specify a way in the options map to distinguish these comments from
